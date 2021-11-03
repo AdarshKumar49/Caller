@@ -1,0 +1,43 @@
+<div id = "mainB">
+        <div id="grid">
+            <div id="areaA">
+                <div class="logo">
+                  <img src="assets/logo.png">
+                </div>
+                <br><br>
+                <div class="pic">
+                   <img src="assets/pic.png">
+                </div>
+            </div>
+            <div id="areaB">
+                <form class="login" [formGroup]="loginForm" name ="loginForm" (ngSubmit) = "onSubmit()" >
+                    <h1 style="font-weight: 600; letter-spacing: 3px;">Welcome Back!</h1>
+                    <p>Log in to continue</p>
+                    <div class="form-group">
+                        <img class="login__icon fas fa-user" src="assets/person-fill.svg" >
+                        <input type="text"  formControlName = "email" class="form-control" placeholder="username111@gmail.com" [ngClass] = "{ 'is-invalid':submitted && loginForm.controls['email'].errors}"/>
+                        <div *ngIf = "submitted && loginForm.controls['email'].errors" class="invalid-feedback">
+                          <div *ngIf = "loginForm.controls['email'].errors.required">Email is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <img class="login__icon fas fa-lock" src="assets/lock-fill.svg">
+                        <input type="password" formControlName="password" class="form-control" placeholder=" Enter Password" [ngClass] = "{'is-invalid': submitted && loginForm.controls['password'].errors}"/>
+                        <div *ngIf ="submitted && loginForm.controls['password'].errors" class="invalid-feedback">
+                            <div *ngIf ="loginForm.controls['password'].errors.required">Password is required</div>
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <button class="button login__submit" [disabled]="" routerLink ='/home'>
+                            <span *ngIf ="loading" class="button__text">LOGIN</span>
+                        
+                       </button>
+                    </div>				
+                </form>
+            </div>
+        </div>
+        <div class="bg">
+            <img src="assets/bg1.png">
+       
+</div> 
+</div>

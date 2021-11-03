@@ -1,0 +1,299 @@
+.app-component{
+    width: 98%;
+    
+}
+.main-box{
+    height: 100%;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    border-right-style: solid ;
+    border-color: rgb(243, 243, 243);
+    
+}
+#logo{
+    margin-left: -5px;
+   
+}
+
+
+.menu-items{
+
+    height: 100%;
+    padding-left: 0px;
+    list-style: none;
+
+    background: rgb(255, 255, 255);
+    line-height: 60px;
+  
+   
+}
+
+.menu-items li{
+    display: block;
+    line-height: 60px;
+    font-size: x-large;
+   
+    font-weight: 400;
+    text-align: start;
+    
+    padding-left: 25px;
+    transition: 0.5s;
+    cursor: pointer;
+    border: 1px solid rgb(255, 255, 255);
+
+}
+.menu-items li:hover{
+    background: #b9b4e6;
+    text-align: start ;
+    color: #000000;
+    .logo{
+        background:white;
+    }
+}
+
+.onActive{
+    color: rgb(0, 0, 0);
+    font-weight: lighter;
+    font-size: large;
+    text-decoration: none;
+    font-style: light;
+    text-align: start;
+    background-color: #b9b4e6;
+    
+}
+#logout{
+    float: right;
+    margin-top: 25px;
+}
+
+.tabs{
+    font-size:20px;
+    font-weight: 300;
+    text-decoration: capitalize;
+    margin-top: 50px;
+}
+table {
+    border: 1px solid #ccc;
+    border-collapse: collapse;
+    margin: 0;
+    padding: 0;
+    width: 100%;
+    table-layout: fixed;
+  }
+  
+  table caption {
+    font-size: 1.5em;
+    font-weight: 400;
+    margin: .5em 0 .75em;
+    text-align:start
+  }
+  
+  table tr  {
+  
+    border: 1px solid #ddd;
+    padding: .35em;
+  }
+  .even{
+      background: #cccbcb;
+  }
+  table th,
+  table td {
+    padding: .625em;
+    text-align: start;
+    border: 0.1px solid #ddd;
+    font-weight: 350;
+  }
+  
+  table th {
+    font-size: .85em;
+    letter-spacing: .1em;
+    font-style: normal;
+   
+  }
+  
+  @media screen and (max-width: 600px) {
+    table {
+      border: 0;
+    }
+  
+    table caption {
+      font-size: 1.3em;
+    }
+    
+    table thead {
+      border: none;
+      clip: rect(0 0 0 0);
+      height: 1px;
+      margin: -1px;
+      overflow: hidden;
+      padding: 0;
+      font-weight: 300;
+      position: absolute;
+      width: 1px;
+    }
+    
+    table tr {
+      border-bottom: 3px solid #ddd;
+      display: block;
+      font-weight: 300;
+      margin-bottom: .625em;
+    }
+    
+    table td {
+      border-bottom: 1px solid #ddd;
+      display: block;
+      font-size: .8em;
+      
+      text-align: right;
+    }
+    
+    table td::before {
+     
+      content: attr(data-label);
+      float: left;
+      font-weight: 400;
+    
+    }
+    
+    table td:last-child {
+      border-bottom: 0;
+    }
+  }
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  
+  /* general styling */
+  body {
+    font-family: "Open Sans", sans-serif;
+    line-height: 1.25;
+  }
+
+
+
+
+
+
+
+/**{
+    padding: 0;
+    margin: 0;
+    text-decoration: none;
+    list-style: none;
+    box-sizing: border-box;
+}
+nav{
+    background-color: rgb(252, 252, 252);
+    line-height: 50px;
+    position: fixed;
+    width: 100%;
+
+}
+label{
+    margin-left: 25px;
+    margin-top: 10px;
+    cursor: pointer;
+}
+nav ul {
+    float: right;
+    margin-right: 20px;
+}
+nav ul li {
+    line-height: 80px;
+    margin: 0 10px;
+}
+
+nav ul li a{
+    
+    padding: 6px;
+
+    
+}
+.side-menu{
+    position: fixed;
+    height: 100%;
+    width: 200px;
+    margin-top: 80px;
+    margin-left: -2px;
+    padding: 20px 0 0 0;
+    text-align: center;
+    background: white;
+    border-right-style: solid ;
+    border-color: rgb(245, 245, 245);
+}
+
+.side-menu a{
+    display: block;
+    line-height: 60px;
+    transition: 0.5s;
+    border: 1px solid rgb(255, 255, 255);
+
+}
+.side-menu a:hover{
+    background: rgb(140, 136, 161);
+    padding-left: 20px;
+    color: white;
+}
+nav .menu-bar{
+    float: right;
+    margin-top: 20px;
+    display: none;
+    margin-right: 20px;
+}
+#menu{
+    display: none;
+}
+.side-menu .logout{
+    display: none;
+}
+.tabs{
+    margin-left: 500px;
+}
+
+@media(max-wdith:900px){
+    .side-menu{
+        width: 100px;
+    }
+}
+@media(max-wdith:650px){
+    nav ul{
+        display: none;
+    }
+    .side-menu{
+        width: 100%;
+        left: 100%;
+        text-align: center;
+        background-color: aqua;
+        transition: all 0.5s;
+    }
+    .side-menu a {
+        display: block;
+    }
+    
+    .side-menu a span{
+        display: block;
+
+    }
+    .side-menu .logout{
+        display: block;
+    }
+
+    nav .menu-bar{
+        display: block;
+    }
+}
+#menu:checked ~ .side-menu{
+    left: 0;
+
+}*/

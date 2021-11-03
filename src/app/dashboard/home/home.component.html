@@ -1,0 +1,135 @@
+<section class="app-component">
+    <div class="row">   
+        <div class="col-lg-2">
+            <div class="main-box">
+
+                <div class="side-menu-list">
+                    <ul class="menu-items">
+                    <li> <img src="assets/logo.png" id ="logo"></li>
+                    <span> <br></span>
+                    <li (click) = "goTo('List')" [ngClass] ="{'onActive':selectedMenu =='List'}" >List</li>
+                    <li (click) = "goTo('Numbers')" [ngClass] ="{'onActive':selectedMenu == 'Numbers'}">Numbers</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <div class="col-lg-10">
+            <img src="assets/logout.png" id ="logout" routerLink = "/"/>
+            <div class="side-menu-content">
+        
+                <div class="tabs" *ngIf = "selectedMenu == 'List'">
+                    <h1>Company List</h1>
+                    <table>
+                        
+                        <thead>
+                          <tr class="odd">
+                            <th scope="col">Company</th>
+                            <th scope="col">Contact</th>
+                            <th scope="col">Country</th>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr class="even"> 
+                            <td data-label="Company">Altroz Fernandez</td>
+                            <td data-label="Contact">Maria Anders</td>
+                            <td data-label="Country">Germany</td>
+                          </tr>
+                          <tr class="odd">
+                            <td scope="row" data-label="Company">Centrino Commercial</td>
+                            <td data-label="Contact">Francisco Garg</td>
+                            <td data-label="Country">Mexico</td>
+                            
+                          </tr>
+                          <tr  class="even">
+                            <td scope="row" data-label="Company">Ernst Handdle</td>
+                            <td data-label="Contact">Roland Mendel</td>
+                            <td data-label="Country">Austria</td>
+                           
+                          </tr>
+                          <tr class="odd">
+                            <td scope="row" data-label="Company">Laughing Winces</td>
+                            <td data-label="Contact">Helen Medns</td>
+                            <td data-label="Country">UK</td>
+                        
+                          </tr>
+                          <tr  class="even">
+                            <td scope="row" data-label="Company">Magazine Ancess</td>
+                            <td data-label="Contact">Yoshi Tarabauli</td>
+                            <td data-label="Country">Canada</td>
+                        
+                          </tr>
+                             <tr class="odd">
+                            <td data-label="Company">Altroz Fernandez</td>
+                            <td data-label="Contact">Maria Anders</td>
+                            <td data-label="Country">Germany</td>
+                          </tr>
+                          <tr  class="even">
+                            <td scope="row" data-label="Company">Centrino Commercial</td>
+                            <td data-label="Contact">Francisco Garg</td>
+                            <td data-label="Country">Mexico</td>
+                            
+                          </tr>
+                          <tr class="odd">
+                            <td scope="row" data-label="Company">Ernst Handdle</td>
+                            <td data-label="Contact">Roland Mendel</td>
+                            <td data-label="Country">Austria</td>
+                           
+                          </tr>
+                          <tr  class="even">
+                            <td scope="row" data-label="Company">Laughing Winces</td>
+                            <td data-label="Contact">Helen Medns</td>
+                            <td data-label="Country">UK</td>
+                        
+                          </tr>
+                          <tr class="odd">
+                            <td scope="row" data-label="Company">Magazine Ancess</td>
+                            <td data-label="Contact">Yoshi Tarabauli</td>
+                            <td data-label="Country">Canada</td>
+                        
+                          </tr>
+                           <tr class="even">
+                            <td data-label="Company">Altroz Fernandez</td>
+                            <td data-label="Contact">Maria Anders</td>
+                            <td data-label="Country">Germany</td>
+                          </tr>
+                          <tr  class="odd">
+                            <td scope="row" data-label="Company">Centrino Commercial</td>
+                            <td data-label="Contact">Francisco Garg</td>
+                            <td data-label="Country">Mexico</td>
+                            
+                          </tr>
+                          <tr class="even">
+                            <td scope="row" data-label="Company">Ernst Handdle</td>
+                            <td data-label="Contact">Roland Mendel</td>
+                            <td data-label="Country">Austria</td>
+                           
+                          </tr>
+                          <tr  class="odd">
+                            <td scope="row" data-label="Company">Laughing Winces</td>
+                            <td data-label="Contact">Helen Medns</td>
+                            <td data-label="Country">UK</td>
+                        
+                          </tr>
+                          <tr class="even">
+                            <td scope="row" data-label="Company">Magazine Ancess</td>
+                            <td data-label="Contact">Yoshi Tarabauli</td>
+                            <td data-label="Country">Canada</td>
+                        
+                          </tr>
+                          
+                       
+                        </tbody>
+                      </table>
+                      <br>
+                    <!-- Angular 8 pagination --> 
+<mat-paginator [pageSizeOptions]="[5, 10, 15]" showFirstLastButtons></mat-paginator>
+                </div>
+                <div class="tabs" *ngIf = "selectedMenu == 'Numbers'">
+                    Numbers List
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
