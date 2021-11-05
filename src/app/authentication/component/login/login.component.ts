@@ -1,6 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder , FormGroup , Validators ,Form} from '@angular/forms';
+import { FormBuilder , FormGroup , Validators} from '@angular/forms';
+import { ToastrService } from 'ngx-toastr';
+import { CookieService } from 'ngx-cookie-service';
+
+
 
 @Component({
   selector: 'app-login',
@@ -8,28 +12,55 @@ import { FormBuilder , FormGroup , Validators ,Form} from '@angular/forms';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-  
-  submitted = true;
-  loading = true;
+
+  submitted = false;
+
+ 
 
 
+ 
 
-  constructor( private formBuilder: FormBuilder, private route : ActivatedRoute , private router : Router) { }
-
-  ngOnInit() {
+  constructor( private formBuilder: FormBuilder, private route : ActivatedRoute , private router : Router,private toastr: ToastrService , private cookieService : CookieService) { 
   }
-  loginForm:FormGroup = this.formBuilder.group({
-    email : ['' , Validators.required , Validators.email],
-    password : ['', Validators.required , Validators.minLength(4)]
+
+  ngOnInit() {}
+  
+  loginForm: FormGroup = this.formBuilder.group({
+    email : ['' , [Validators.compose([Validators.required , Validators.email])]],
+    password : ['', [Validators.required , Validators.minLength(4)]]
   });
-  
-  onSubmit(){
-  
-    if(this.loginForm.invalid){
-       return;
-    }
-    this.loading = true;
 
+
+
+onSubmit(){
+ 
+ 
+   
+  //  this.submitted = false;
+
+    
+    //if (this.loginForm.invalid){
+    //return ;
+    //}
+    
+  
+    //this.api.functionPOST('user/login',this.loginForm.value).subscribe((response)=>{
+    //  console.log('response', response)
+   // })
   }
   
+  
+
+ 
+  //this.submitted = true;
+  //if(this.loginForm.invalid){
+    //  return;
+  //}
+  
+  //this.loading = true;
+  
+//}
+onClick(){
+  this.toastr.success('hello, you are!' )
+}
 }
