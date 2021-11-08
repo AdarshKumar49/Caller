@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { ToastrModule } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { SharedModule } from '../shared/shared.module';
 
 
 
@@ -24,6 +25,7 @@ import { NgxSpinnerModule } from "ngx-spinner";
     BrowserModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
+    SharedModule,
     AuthenticationRoutingModule
   ],
   providers:

@@ -9,6 +9,7 @@ import { BrowserModule } from '@angular/platform-browser';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxSpinnerModule } from "ngx-spinner";
+import { SharedModule } from '../shared/shared.module';
 
 
 @NgModule({
@@ -23,7 +24,8 @@ import { NgxSpinnerModule } from "ngx-spinner";
     DashboardRoutingModule,
     BrowserAnimationsModule,
     NgxSpinnerModule,
-    MatPaginatorModule
+    MatPaginatorModule,
+    SharedModule
 
     
   ]

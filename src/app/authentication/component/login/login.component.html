@@ -1,5 +1,4 @@
 <div id = "mainB">
-        Console.log(Get Cookie: {{cookieValue})
         <div id="grid">
             <div id="areaA">
                 <div class="logo">
@@ -36,13 +35,15 @@
                         
                     </div>
                     <div class="form-group">
-                        <button id="submit" type="button"  class = "btn btn-primary"[disabled]="loginForm.invalid" (click) = "onClick()" routerLink="/home">
+                        <button id="submit" type="button"  class = "btn btn-primary"[disabled]="loginForm.invalid" (click) = "onClick()" (click)="showSpinner()" routerLink="/home">
                             <span *ngIf ="loginForm.valid" class="button__text"  >LOGIN</span>
-                            <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: rgb(250, 216, 216);" > Loading... </p></ngx-spinner>
-                            
+                                <!--Console.log(Get Cookie: {{cookieValue})-->
                            
                         
                        </button>
+                       <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: rgb(250, 216, 216);" > Loading... </p></ngx-spinner>
+                       <!--Console.log(Get Cookie: {{cookieValue})-->
+                      
 
                     </div>				
                 </form>
