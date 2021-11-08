@@ -4,6 +4,7 @@ import { FormBuilder , FormGroup , Validators} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerService } from "ngx-spinner";
+import { v4 as uuidv4 } from 'uuid';
 
 
 
@@ -15,13 +16,16 @@ import { NgxSpinnerService } from "ngx-spinner";
 export class LoginComponent implements OnInit {
 
   submitted = false;
-
+  cookieValue = ''; 
+  
  
 
 
  
 
   constructor( private formBuilder: FormBuilder, private route : ActivatedRoute , private router : Router,private toastr: ToastrService , private cookieService : CookieService,private spinner: NgxSpinnerService)  { 
+    this.cookieService.set('X-Auth-Token', uuidv4());
+    this.cookieValue = this.cookieService.get('X-Auth-Token');
   }
 
   ngOnInit() {
