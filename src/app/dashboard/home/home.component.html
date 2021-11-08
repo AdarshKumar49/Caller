@@ -15,7 +15,9 @@
         </div>
 
         <div class="col-lg-10">
-            <img src="assets/logout.png" id ="logout" routerLink = "/" (click)="showSpinner()"/>
+          <app-header></app-header>
+
+           
             <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
       
             <div class="side-menu-content">

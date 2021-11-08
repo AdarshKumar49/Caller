@@ -3,8 +3,8 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  API:'https://gosu-bkend.devtomaster.com/',
-  production: true
+  API:'http://54.151.211.188:3000/',
+  production: false
 };
 
 /*

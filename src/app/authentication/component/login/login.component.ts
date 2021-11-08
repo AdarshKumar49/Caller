@@ -1,12 +1,14 @@
+
+
 import { Component, OnInit } from '@angular/core';
-import { Router, ActivatedRoute } from '@angular/router';
-import { FormBuilder , FormGroup , Validators} from '@angular/forms';
+import {FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Router } from '@angular/router';
+import { ApiService } from '../../../shared/service/api.service';
+import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
-import { NgxSpinnerService } from "ngx-spinner";
 import { v4 as uuidv4 } from 'uuid';
-import { ApiService } from 'src/app/shared/service/api.service';
-
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-login',
@@ -14,73 +16,83 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./login.component.scss']
 })
 export class LoginComponent implements OnInit {
-
-  submitted = false;
-  cookieValue = ''; 
   
- 
+  formGroup: FormGroup;
+  cookieValue: string;
+  
 
+  constructor(
+    private formBuilder: FormBuilder,
+    private api: ApiService,
+    private toastr: ToastrService,
+    private cookieService: CookieService,
+    private spinner: NgxSpinnerService,
+    private router: Router
 
- 
-
-  constructor( private formBuilder: FormBuilder, private route : ActivatedRoute , private router : Router,private toastr: ToastrService , private cookieService : CookieService,private spinner: NgxSpinnerService , private api:ApiService)  { 
-    this.cookieService.set('X-Auth-Token', uuidv4());
-    this.cookieValue = this.cookieService.get('X-Auth-Token');
-  }
+    ) {
+      this.cookieService.set('X-Auth-Token', uuidv4());
+      this.cookieValue = this.cookieService.get('X-Auth-Token');
+     }
+  
+  
 
   ngOnInit() {
-   
+      this.createForm();
+      
   }
-  showSpinner() {
-    this.spinner.show();
-    setTimeout(() => {
-      /** spinner ends after 3 seconds */
-      this.spinner.hide();
-    }, 3000);
-  }
-  
-  
-  loginForm: FormGroup = this.formBuilder.group({
-    email : ['' , [Validators.compose([Validators.required , Validators.email])]],
-    password : ['', [Validators.required , Validators.minLength(4)]]
-  });
-
-
-
-onSubmit(){
-  
  
-   
-   
 
-    
-    if (this.loginForm.invalid){
-      this.toastr.error('wrong,please enter valid credentials' )
-    return  ;
+  createForm() {
+    this.formGroup = this.formBuilder.group({
+      'username': ['', Validators.required],
+      'password': ['', Validators.required],
+    });
+  }
+
+  getError(el) {
+    switch (el) {
+      case 'user':
+        if (this.formGroup.get('username').hasError('required')) {
+          return 'Email is required';
+        }
+        break;
+      case 'pass':
+        if (this.formGroup.get('password').hasError('required')) {
+          return 'Password is required';
+        }
+        break;
+      default:
+        return '';
     }
-    this.spinner.show();
-    
-    console.log(this.loginForm.value)
-    this.api.functionPOST('user/login',this.loginForm.value).subscribe((response)=>{
-    console.log('response', response)
-    this.spinner.hide();
-   },(error)=>{
-     console.log(error)
-     this.toastr.error(error.message)
-     this.spinner.hide();
-   }) 
   }
-  
-  
 
- 
-  //this.submitted = true;
-  //if(this.loginForm.invalid){
-    //  return;
-  //}
+  onSubmit() {
   
-  //this.loading = true;
-  
-//}
+    if (this.formGroup.invalid){
+      this.toastr.error('Please enter valid credentials' )
+      return  ;
+      }
+      this.spinner.show();
+      
+
+      console.log(this.formGroup.value);
+      this.api.functionPOST('auth/login/hr',this.formGroup.value, true).subscribe((response)=>{
+      console.log('response', response);
+      this.toastr.success(response.message);
+      this.spinner.hide();
+
+      localStorage.setItem('token', response.result.token);
+      localStorage.setItem('fName', response.result.firstName);
+      this.router.navigate(['home']);
+     },
+
+
+     (error)=>{
+       console.log(error)
+       this.toastr.error(error.message)
+       this.spinner.hide();
+     }) 
+
+    }
 
 }

@@ -1,3 +1,4 @@
+
 import { Router } from '@angular/router';
 import { ToastrService } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
@@ -28,7 +29,7 @@ export class ApiService {
   // GET
   functionGET(url: string) {
     const Link = this.baseUrl + url;
-    const header = new HttpHeaders().set('Authorization', this.cookieService.get('token'));
+    const header = new HttpHeaders().set('Authorization', localStorage.getItem('token'));
     const headers = { headers: header };
     return this.http.get(Link, headers)
       .pipe(map(Response => this.checkResponse(Response)),
@@ -36,9 +37,16 @@ export class ApiService {
   } 
 
   // POST
-  functionPOST(url: string, data: any): Observable<any> {
+  functionPOST(url: string, data: any, token?): Observable<any> {
     const Link = this.baseUrl + url;
-     const header = new HttpHeaders().set('Authorization', this.cookieService.get('token'));
+    const header:any={}
+    if (token){
+      const header = new HttpHeaders()
+    }
+    else {
+      const header = new HttpHeaders().set('Authorization', localStorage.getItem('token'));
+    }
+    
     const headers = { headers: header };
     return this.http.post(Link, data, headers)
       .pipe(map(Response => this.checkResponse(Response)),
@@ -48,7 +56,7 @@ export class ApiService {
   // PUT
   functionPUT(url: string, data: any): Observable<any> {
     const Link = this.baseUrl + url;
-     const header = new HttpHeaders().set('Authorization', this.cookieService.get('token'));
+     const header = new HttpHeaders().set('Authorization', localStorage.getItem('token'));
     const headers = { headers: header };
     return this.http.put(Link, data, headers)
       .pipe(map(Response => this.checkResponse(Response)),
@@ -58,7 +66,7 @@ export class ApiService {
   // DELETE
   functionDelete(url: string) {
     const Link = this.baseUrl + url;
-    const header = new HttpHeaders().set('Authorization', this.cookieService.get('token'));
+    const header = new HttpHeaders().set('Authorization', localStorage.getItem('token'));
     const headers = { headers: header };
     return this.http.delete(Link, headers)
       .pipe(map(Response => this.checkResponse(Response)),

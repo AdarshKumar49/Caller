@@ -10,6 +10,11 @@ import { ToastrModule } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SharedModule } from '../shared/shared.module';
+import {MatInputModule} from '@angular/material/input';
+import {MatFormFieldModule} from '@angular/material/form-field';
+
+import {MatButtonModule} from '@angular/material/button';
+import {MatCardModule} from '@angular/material/card';
 
 
 
@@ -25,6 +30,10 @@ import { SharedModule } from '../shared/shared.module';
     BrowserModule,
     ToastrModule.forRoot(),
     NgxSpinnerModule,
+    MatFormFieldModule,
+    MatInputModule,
+    MatButtonModule,
+    MatCardModule,
     SharedModule,
     AuthenticationRoutingModule
   ],
