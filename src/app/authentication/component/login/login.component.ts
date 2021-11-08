@@ -48,20 +48,27 @@ export class LoginComponent implements OnInit {
 
 
 onSubmit(){
- 
+  
  
    
-  //  this.submitted = false;
+   
 
     
-    //if (this.loginForm.invalid){
-    //return ;
-    //}
+    if (this.loginForm.invalid){
+      this.toastr.error('wrong,please enter valid credentials' )
+    return  ;
+    }
+    this.spinner.show();
     
     console.log(this.loginForm.value)
     this.api.functionPOST('user/login',this.loginForm.value).subscribe((response)=>{
     console.log('response', response)
-   })
+    this.spinner.hide();
+   },(error)=>{
+     console.log(error)
+     this.toastr.error(error.message)
+     this.spinner.hide();
+   }) 
   }
   
   
@@ -75,7 +82,5 @@ onSubmit(){
   //this.loading = true;
   
 //}
-onClick(){
-  this.toastr.success('Great,for logging in again' )
-}
+
 }

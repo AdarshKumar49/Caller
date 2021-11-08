@@ -79,15 +79,15 @@ export class ApiService {
   handleError(error: any): any {
     switch (error.status) {
       case 204:
-        this.toastr.error(error['error']['data'], '');
+        //this.toastr.error(error['error']['data'], '');
         break;
       case 403:
-        this.toastr.error(error['error']['data'], '');
+       // this.toastr.error(error['error']['data'], '');
         this.cookieService.deleteAll();
         this.router.navigate(['/']);
         break;
       default:
-        this.toastr.error(error['error']['data'], '');
+       // this.toastr.error(error['error']['data'], '');
         return error.error;
     }
   }
