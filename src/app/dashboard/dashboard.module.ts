@@ -8,7 +8,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
-
+import { NgxSpinnerModule } from "ngx-spinner";
 
 
 @NgModule({
@@ -22,6 +22,7 @@ import {MatPaginatorModule} from '@angular/material/paginator';
     BrowserModule,
     DashboardRoutingModule,
     BrowserAnimationsModule,
+    NgxSpinnerModule,
     MatPaginatorModule
 
     

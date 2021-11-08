@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
   selector: 'app-home',
@@ -13,9 +14,21 @@ export class HomeComponent implements OnInit {
     this.selectedMenu = paramText
   }
 
-  constructor() { }
+  constructor(private spinner: NgxSpinnerService) { }
 
-  ngOnInit(): void {
+  ngOnInit() {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 5000);
+  }
+  showSpinner() {
+    this.spinner.show();
+    setTimeout(() => {
+      /** spinner ends after 5 seconds */
+      this.spinner.hide();
+    }, 10000);
   }
 
 }

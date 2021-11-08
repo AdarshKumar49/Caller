@@ -3,6 +3,7 @@ import { Router, ActivatedRoute } from '@angular/router';
 import { FormBuilder , FormGroup , Validators} from '@angular/forms';
 import { ToastrService } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
+import { NgxSpinnerService } from "ngx-spinner";
 
 
 
@@ -20,10 +21,12 @@ export class LoginComponent implements OnInit {
 
  
 
-  constructor( private formBuilder: FormBuilder, private route : ActivatedRoute , private router : Router,private toastr: ToastrService , private cookieService : CookieService) { 
+  constructor( private formBuilder: FormBuilder, private route : ActivatedRoute , private router : Router,private toastr: ToastrService , private cookieService : CookieService,private spinner: NgxSpinnerService)  { 
   }
 
-  ngOnInit() {}
+  ngOnInit() {
+   
+  }
   
   loginForm: FormGroup = this.formBuilder.group({
     email : ['' , [Validators.compose([Validators.required , Validators.email])]],
