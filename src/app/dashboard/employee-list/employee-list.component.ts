@@ -4,20 +4,20 @@ import { MatPaginator} from '@angular/material/paginator';
 import { MatSort} from '@angular/material/sort';
 import { ApiService } from 'src/app/shared/service/api.service';
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-employee-list',
+  templateUrl: './employee-list.component.html',
+  styleUrls: ['./employee-list.component.scss']
 })
-export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'status'];
+export class EmployeeListComponent implements OnInit {
+  displayedColumns: string[] = ['firstName', 'jobTitle' , 'phone'];
   dataSource = new MatTableDataSource();
   
  /* dataSource = new MatTableDataSource (ELEMENT_DATA);*/
 
   @ViewChild(MatPaginator, {static: true} ) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
+ 
   
 
   selectedMenu:any = 'List';
@@ -29,12 +29,10 @@ export class HomeComponent implements OnInit {
   constructor(private api:ApiService) { }
 
   ngOnInit() {
-   
-    this.api.functionGET('appConfiguration/company').subscribe((response)=>{
-      this.dataSource = response.result;
+    this.api.functionGET('company/1/employee?search=&limit=10&page=1&orderBy=ASC&sortBy=createdAt').subscribe((response)=>{
+      this.dataSource = response.result.rows;
       console.log('response', response);
-    
   })
-}
-  
+  }
+
 }

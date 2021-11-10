@@ -4,7 +4,24 @@
 }
 .main-box{
     height: 100%;
-    width: 100%;
+    width: 80%;
+    background-color: rgb(255, 255, 255);
+    display: block;
+    border-right-style: solid ;
+    border-color: rgb(243, 243, 243);
+    
+}
+#logo{
+    margin-left: -5px;
+   
+}
+.app-component{
+    width: 98%;
+    
+}
+.main-box{
+    height: 100%;
+    width: 80%;
     background-color: rgb(255, 255, 255);
     display: block;
     border-right-style: solid ;
@@ -22,6 +39,7 @@
     height: 100%;
     padding-left: 0px;
     list-style: none;
+
     background: rgb(255, 255, 255);
     line-height: 60px;
   
@@ -45,6 +63,7 @@
     text-align: start;
     font-size: 19px;
     border: 0.1px solid rgb(223, 223, 223);
+
 }
 .mat-table{
   
@@ -64,14 +83,14 @@
     display: block;
     line-height: 60px;
     font-size: x-large;
+   
     font-weight: 400;
     text-align: start;
+    
     padding-left: 25px;
     transition: 0.5s;
     cursor: pointer;
-
-    
-  
+    border: 1px solid rgb(255, 255, 255);
 
 }
 .menu-items li:hover{
@@ -84,13 +103,13 @@
 }
 
 .onActive{
-    color: rgb(219, 148, 148);
+    color: rgb(0, 0, 0);
     font-weight: lighter;
     font-size: large;
     text-decoration: none;
     font-style: light;
     text-align: start;
-   
+    background-color: #b9b4e6;
     
 }
 
@@ -207,4 +226,8 @@ table {
     font-family: "Open Sans", sans-serif;
     line-height: 1.25;
   }
+
+
+
+
 

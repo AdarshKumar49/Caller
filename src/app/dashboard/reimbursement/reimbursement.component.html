@@ -1,0 +1,56 @@
+<section class="app-component">
+  <div class="row">   
+      <div class="col-lg-2">
+          <div class="main-box">
+
+          <app-side-menu></app-side-menu>
+          </div>
+      </div>
+
+      <div class="col-lg-10">
+        <app-header></app-header>
+
+         
+         
+          <div class="side-menu-content">
+      
+            
+                <h1 style="margin-top: -20px;">Employee List</h1>
+                <mat-table [dataSource]="dataSource" class="mat-elevation-z0">
+                
+                    <!--- Note that these columns can be defined in any order.
+                          The actual rendered columns are set as a property on the row definition" -->
+                  
+                    <!-- Position Column -->
+                    <ng-container matColumnDef="userName">
+                        <mat-header-cell *matHeaderCellDef> userName </mat-header-cell>
+                        <mat-cell *matCellDef="let dataSource"> {{dataSource.userName}} </mat-cell>
+                      </ng-container>
+
+                      <ng-container matColumnDef="reimbursementNumber">
+                        <mat-header-cell *matHeaderCellDef> reimbursementNumber </mat-header-cell>
+                        <mat-cell *matCellDef="let dataSource"> {{dataSource.reimbursementNumber}} </mat-cell>
+                      </ng-container>
+                    
+                    
+                      <ng-container matColumnDef="userId">
+                        <mat-header-cell *matHeaderCellDef> userId </mat-header-cell>
+                        <mat-cell *matCellDef="let dataSource"> {{dataSource.userId}} </mat-cell>
+                      </ng-container>
+
+                      
+
+                      <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+                      <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+                      </mat-table>
+                  <mat-paginator [pageSizeOptions]="[15,20,25]" showFirstLastButtons></mat-paginator>
+                  <!-- Angular 8 pagination --> 
+         </div>
+             
+              
+                   </div>
+
+      </div>
+  
+</section>
+

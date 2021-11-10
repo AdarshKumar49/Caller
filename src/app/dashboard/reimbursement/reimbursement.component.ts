@@ -4,37 +4,26 @@ import { MatPaginator} from '@angular/material/paginator';
 import { MatSort} from '@angular/material/sort';
 import { ApiService } from 'src/app/shared/service/api.service';
 
-
 @Component({
-  selector: 'app-home',
-  templateUrl: './home.component.html',
-  styleUrls: ['./home.component.scss']
+  selector: 'app-reimbursement',
+  templateUrl: './reimbursement.component.html',
+  styleUrls: ['./reimbursement.component.scss']
 })
-export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'status'];
+export class ReimbursementComponent implements OnInit {
+  displayedColumns: string[] = ['userName','reimbursementNumber', 'userId'];
   dataSource = new MatTableDataSource();
-  
- /* dataSource = new MatTableDataSource (ELEMENT_DATA);*/
 
   @ViewChild(MatPaginator, {static: true} ) paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
-  
-
-  selectedMenu:any = 'List';
-
-  goTo(paramText:string){
-    this.selectedMenu = paramText
-  }
+ 
 
   constructor(private api:ApiService) { }
 
   ngOnInit() {
-   
-    this.api.functionGET('appConfiguration/company').subscribe((response)=>{
-      this.dataSource = response.result;
+    this.api.functionGET('reimbursement?').subscribe((response)=>{   this.dataSource = response.result.rows;
       console.log('response', response);
-    
   })
-}
   
+  }
+
 }

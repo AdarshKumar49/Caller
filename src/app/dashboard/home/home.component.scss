@@ -29,6 +29,39 @@
    
 }
 
+
+#logo{
+    margin-left: -5px;
+   
+}
+
+
+.mat-row:nth-child(even){
+    background-color: rgb(218, 216, 216);
+}
+.mat-header-cell{
+    font-weight: 400;
+    padding-left: 10px;
+    color: black;
+    text-align: start;
+    font-size: 19px;
+    border: 0.1px solid rgb(223, 223, 223);
+
+}
+.mat-table{
+  
+    border: 0.1px solid rgb(223, 223, 223);
+}
+
+.mat-cell {
+   
+   padding-left: 10px;
+   font-size: 1.2rem;
+   border: 0.1px solid rgb(223, 223, 223);
+    
+}
+
+
 .menu-items li{
     display: block;
     line-height: 60px;
