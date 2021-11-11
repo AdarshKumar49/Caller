@@ -14,8 +14,8 @@
             <ngx-spinner bdColor = "rgba(0, 0, 0, 0.8)" size = "medium" color = "#fff" type = "square-jelly-box" [fullScreen] = "true"><p style="color: white" > Loading... </p></ngx-spinner>
       
             <div class="side-menu-content">
-        
-              
+      
+                 
                   <h1 style="margin-top: -20px;">Company List</h1>
                   <mat-table [dataSource]="dataSource" class="mat-elevation-z0">
                   
@@ -24,26 +24,27 @@
                     
                       <!-- Position Column -->
                       <ng-container matColumnDef="name">
-                          <mat-header-cell *matHeaderCellDef> name </mat-header-cell>
+                          <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
                           <mat-cell *matCellDef="let dataSource"> {{dataSource.name}} </mat-cell>
                         </ng-container>
                       
                       
                         <ng-container matColumnDef="status">
-                          <mat-header-cell *matHeaderCellDef> status </mat-header-cell>
+                          <mat-header-cell *matHeaderCellDef> Status </mat-header-cell>
                           <mat-cell *matCellDef="let dataSource"> {{dataSource.status}} </mat-cell>
                         </ng-container>
 
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                         <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
                         </mat-table>
-                    <mat-paginator [pageSizeOptions]="[15,20,25]" showFirstLastButtons></mat-paginator>
+                 
                     <!-- Angular 8 pagination --> 
            </div>
-               
-                
+           <mat-paginator #scheduledOrdersPaginator [pageSizeOptions]="[10, 15, 20]"></mat-paginator>
+       
+         
                      </div>
-
+        
         </div>
     
 </section>

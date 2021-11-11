@@ -1,13 +1,14 @@
 <div class="main-box">
 
     <div class="side-menu-list">
-        <ul class="menu-items">
+        <ul class="menu-items" >
         <li> <img src="assets/logo.png" id ="logo"></li>
         <span> <br></span>
-        <li (click) = "displayList()"  >List</li>
-        <li (click) = "displayNumbers()" >Numbers</li>
-        <li (click) = "displayReimbursement()" >Reimbursement</li>
+        <li [routerLink]="['/home']" routerLinkActive="active">List</li>
+        <li [routerLink]="['/employeelist']" routerLinkActive="active" >Employee list</li>
+        <li  [routerLink]="['/reimbursement']" routerLinkActive="active" >Reimbursement</li>
         </ul>
     </div>
     <div class="side-menu-content">
 </div>
+

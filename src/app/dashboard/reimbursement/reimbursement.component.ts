@@ -10,18 +10,26 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./reimbursement.component.scss']
 })
 export class ReimbursementComponent implements OnInit {
-  displayedColumns: string[] = ['userName','reimbursementNumber', 'userId'];
+  displayedColumns: string[] = ['userName','createdAt', 'amount','expenseDate','eSign'];
   dataSource = new MatTableDataSource();
 
-  @ViewChild(MatPaginator, {static: true} ) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
+
+  @ViewChild('scheduledOrdersPaginator') paginator: MatPaginator;
+  @ViewChild(MatSort) set sort(sorter:MatSort) {
+    if (sorter) this.dataSource.sort = sorter;
+  }
  
 
   constructor(private api:ApiService) { }
 
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator
+}
+
   ngOnInit() {
-    this.api.functionGET('reimbursement?').subscribe((response)=>{   this.dataSource = response.result.rows;
+    this.api.functionGET('reimbursement?').subscribe((response)=>{   this.dataSource.data = response.result.rows;
       console.log('response', response);
+     
   })
   
   }

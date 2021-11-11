@@ -1,39 +1,58 @@
 .app-component{
     width: 98%;
     
-}
-.main-box{
-    height: 100%;
-    width: 80%;
+  }
+  .main-box{
+    height: 100vh;
+    width: 100%;
     background-color: rgb(255, 255, 255);
     display: block;
     border-right-style: solid ;
     border-color: rgb(243, 243, 243);
+   
     
-}
-#logo{
+  }
+  #logo{
     margin-left: -5px;
-   
-}
-
-
-.menu-items{
-
-    height: 100%;
-    padding-left: 0px;
-    list-style: none;
-
-    background: rgb(255, 255, 255);
-    line-height: 60px;
+  }
   
-   
-}
-
-
-#logo{
-    margin-left: -5px;
-   
-}
+  .menu-items{
+      padding-left: 0px;
+      list-style: none;
+      background: rgb(255, 255, 255);
+      line-height: 60px;
+  }
+  
+  
+  
+  
+  
+  
+  .menu-items li{
+      display: block;
+      line-height: 60px;
+      width: 100%;
+      font-size: x-large;
+      font-weight: 400;
+      text-align: start;
+      padding-left: 25px;
+      transition: 0.5s;
+      cursor: pointer;
+  
+      
+    
+  
+  }
+  .menu-items li:hover{
+      background: #b9b4e6;
+      text-align: start ;
+      width: 100%;
+      color: #000000;
+      .logo{
+          background:white;
+      }
+  }
+  
 
 
 .mat-row:nth-child(even){

@@ -15,22 +15,22 @@ export class EmployeeListComponent implements OnInit {
   
  /* dataSource = new MatTableDataSource (ELEMENT_DATA);*/
 
-  @ViewChild(MatPaginator, {static: true} ) paginator: MatPaginator;
+ @ViewChild('scheduledOrdersPaginator') paginator: MatPaginator;
   @ViewChild(MatSort, { static: true }) sort: MatSort;
  
   
 
-  selectedMenu:any = 'List';
-
-  goTo(paramText:string){
-    this.selectedMenu = paramText
-  }
+  
 
   constructor(private api:ApiService) { }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator
+}
+
 
   ngOnInit() {
     this.api.functionGET('company/1/employee?search=&limit=10&page=1&orderBy=ASC&sortBy=createdAt').subscribe((response)=>{
-      this.dataSource = response.result.rows;
+      this.dataSource.data = response.result.rows;
       console.log('response', response);
   })
   }

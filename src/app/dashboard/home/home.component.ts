@@ -13,25 +13,28 @@ import { ApiService } from 'src/app/shared/service/api.service';
 export class HomeComponent implements OnInit {
   displayedColumns: string[] = ['name', 'status'];
   dataSource = new MatTableDataSource();
-  
- /* dataSource = new MatTableDataSource (ELEMENT_DATA);*/
-
-  @ViewChild(MatPaginator, {static: true} ) paginator: MatPaginator;
-  @ViewChild(MatSort, { static: true }) sort: MatSort;
-  
-
   selectedMenu:any = 'List';
 
   goTo(paramText:string){
     this.selectedMenu = paramText
   }
+  
+ /* dataSource = new MatTableDataSource (ELEMENT_DATA);*/
+ @ViewChild('scheduledOrdersPaginator') paginator: MatPaginator;
+  @ViewChild(MatSort, { static: true }) sort: MatSort;
+  
+
+ 
 
   constructor(private api:ApiService) { }
+  ngAfterViewInit() {
+    this.dataSource.paginator = this.paginator
+}
 
   ngOnInit() {
    
     this.api.functionGET('appConfiguration/company').subscribe((response)=>{
-      this.dataSource = response.result;
+      this.dataSource.data = response.result;
       console.log('response', response);
     
   })

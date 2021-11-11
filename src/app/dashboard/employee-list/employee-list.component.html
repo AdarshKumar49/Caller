@@ -23,28 +23,28 @@
                   
                     <!-- Position Column -->
                     <ng-container matColumnDef="firstName">
-                        <mat-header-cell *matHeaderCellDef> firstName </mat-header-cell>
-                        <mat-cell *matCellDef="let dataSource"> {{dataSource.firstName}} </mat-cell>
+                        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+                        <mat-cell *matCellDef="let dataSource"> {{dataSource.firstName}} {{dataSource.lastName}}</mat-cell>
                       </ng-container>
                     
                     
                       <ng-container matColumnDef="jobTitle">
-                        <mat-header-cell *matHeaderCellDef> jobTitle </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Job Title </mat-header-cell>
                         <mat-cell *matCellDef="let dataSource"> {{dataSource.jobTitle}} </mat-cell>
                       </ng-container>
 
                       <ng-container matColumnDef="phone">
-                        <mat-header-cell *matHeaderCellDef> phone </mat-header-cell>
+                        <mat-header-cell *matHeaderCellDef> Phone number</mat-header-cell>
                         <mat-cell *matCellDef="let dataSource"> {{dataSource.phone}} </mat-cell>
                       </ng-container>
 
                       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
                       <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
                       </mat-table>
-                  <mat-paginator [pageSizeOptions]="[15,20,25]" showFirstLastButtons></mat-paginator>
-                  <!-- Angular 8 pagination --> 
+                 <!-- Angular 8 pagination --> 
          </div>
-             
+         <mat-paginator #scheduledOrdersPaginator [pageSizeOptions]="[10, 15, 20]"></mat-paginator>
+          
               
                    </div>
 
