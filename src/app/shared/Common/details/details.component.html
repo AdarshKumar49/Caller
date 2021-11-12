@@ -1,0 +1,37 @@
+
+    <button mat-icon-button class="close-button" >
+        <mat-icon class="close-icon" color="warn" (click)="onNoClick()">close</mat-icon>
+    </button>
+    <h1 mat-dialog-title style="font-weight: 400; font-size: 100;">
+        {{details.title}} details
+    </h1>
+    <hr>
+    <div mat-dialog-content >
+        <div class="data" *ngIf="details.title=='Company'" >
+        {{details.item.email}} <br>
+        {{details.item.status}}
+        </div>
+
+    </div> 
+
+    <div  class="data" *ngIf="details.title=='Employee'" >
+        {{details.item.firstName}} {{details.item.lastName}} <br>
+        {{details.item.location}} <br>
+        {{details.item.gender}}<br>
+        {{details.item.employeeId}}<br>
+        {{details.item.joiningDate}}
+    
+    </div> 
+
+    <div  class="data" *ngIf="details.title=='Reimbursement'" >
+        {{details.item.userId}}<br>
+        {{details.item.userName}} <br>
+        {{details.item.amount}}<br>
+        {{details.item.reimbursementTypeId}}<br>
+        {{details.item.updatedAt}}
+    
+    </div> 
+
+
+
+

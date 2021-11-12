@@ -3,6 +3,8 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator} from '@angular/material/paginator';
 import { MatSort} from '@angular/material/sort';
 import { ApiService } from 'src/app/shared/service/api.service';
+import { MatDialog } from '@angular/material/dialog';
+import { DetailsComponent } from 'src/app/shared/Common/details/details.component';
 
 
 @Component({
@@ -23,18 +25,36 @@ export class HomeComponent implements OnInit {
 
  
 
-  constructor(private api:ApiService) { }
+  constructor(private api:ApiService , private dialog:MatDialog) { }
   ngAfterViewInit() {
     this.dataSource.paginator = this.paginator
 }
 
   ngOnInit() {
    
-    this.api.functionGET('appConfiguration/company').subscribe((response)=>{
-      this.dataSource.data = response.result;
-      console.log('response', response);
+    this.companyList();
+  }
+
+companyList(){
+  this.api.functionGET('appConfiguration/company').subscribe((response)=>{
+    this.dataSource.data = response.result;
     
+})
+}
+viewDetails(dataSource){
+  const dialogRef=this.dialog.open(DetailsComponent,{
+    data:{
+      title:"Company",
+      item:dataSource
+    }
+  });
+  dialogRef.afterClosed().subscribe(result=>{
+    console.log("console ", result)
+  //  if (result){
+     // this.toastr.success("popup closed")
+  //  }
   })
+
 }
   
 }

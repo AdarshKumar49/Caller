@@ -36,7 +36,7 @@
 
                         <ng-container matColumnDef="action">
                           <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
-                          <mat-cell *matCellDef="let dataSource"> <button mat-icon-button class="eye"> <mat-icon>visibility</mat-icon>  </button> </mat-cell>
+                          <mat-cell *matCellDef="let dataSource"> <mat-icon class="eye" (click)='viewDetails(dataSource)' >visibility</mat-icon>   </mat-cell>
                         </ng-container>
 
                         <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
@@ -47,7 +47,7 @@
                  
                     <!-- Angular 8 pagination --> 
            </div>
-           <mat-paginator #scheduledOrdersPaginator [pageSizeOptions]="[10, 15, 20]"></mat-paginator>
+           <mat-paginator #scheduledOrdersPaginator [pageSizeOptions]="[15, 20, 25]"></mat-paginator>
        
          
                      </div>

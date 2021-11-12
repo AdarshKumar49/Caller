@@ -7,7 +7,7 @@ import { ApiService } from '../../../shared/service/api.service';
 import { Observable } from 'rxjs';
 import { ToastrService } from 'ngx-toastr';
 import { CookieService } from 'ngx-cookie-service';
-import { v4 as uuidv4 } from 'uuid';
+
 import { NgxSpinnerService } from "ngx-spinner";
 
 @Component({
@@ -29,12 +29,8 @@ export class LoginComponent implements OnInit {
     private spinner: NgxSpinnerService,
     private router: Router
 
-    ) {
-      this.cookieService.set('X-Auth-Token', uuidv4());
-      this.cookieValue = this.cookieService.get('X-Auth-Token');
-     }
-  
-  
+  ){}
+
 
   ngOnInit() {
       this.createForm();
@@ -83,6 +79,7 @@ export class LoginComponent implements OnInit {
 
       localStorage.setItem('token', response.result.token);
       localStorage.setItem('fName', response.result.firstName);
+      this.cookieService.set('email', response.result.email);
       this.router.navigate(['home']);
      },
 
