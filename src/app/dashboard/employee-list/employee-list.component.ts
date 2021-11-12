@@ -3,6 +3,7 @@ import { MatTableDataSource } from '@angular/material/table';
 import { MatPaginator} from '@angular/material/paginator';
 import { MatSort} from '@angular/material/sort';
 import { ApiService } from 'src/app/shared/service/api.service';
+import { Action } from 'rxjs/internal/scheduler/Action';
 
 @Component({
   selector: 'app-employee-list',
@@ -10,7 +11,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./employee-list.component.scss']
 })
 export class EmployeeListComponent implements OnInit {
-  displayedColumns: string[] = ['firstName', 'jobTitle' , 'phone'];
+  displayedColumns: string[] = ['firstName', 'jobTitle' , 'phone', 'action'];
   dataSource = new MatTableDataSource();
   
  /* dataSource = new MatTableDataSource (ELEMENT_DATA);*/

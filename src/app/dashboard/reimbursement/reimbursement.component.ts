@@ -10,7 +10,7 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./reimbursement.component.scss']
 })
 export class ReimbursementComponent implements OnInit {
-  displayedColumns: string[] = ['userName','createdAt', 'amount','expenseDate','eSign'];
+  displayedColumns: string[] = ['userName','createdAt', 'amount','expenseDate','eSign' , 'action'];
   dataSource = new MatTableDataSource();
 
 
@@ -27,7 +27,7 @@ export class ReimbursementComponent implements OnInit {
 }
 
   ngOnInit() {
-    this.api.functionGET('reimbursement?').subscribe((response)=>{   this.dataSource.data = response.result.rows;
+    this.api.functionGET('reimbursement?').subscribe((response)=>{this.dataSource.data = response.result.rows;
       console.log('response', response);
      
   })

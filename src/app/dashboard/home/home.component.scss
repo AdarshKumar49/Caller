@@ -115,13 +115,8 @@
     
 }
 
+/*Mat tble*/
 
-.tabs{
-    font-size:20px;
-    font-weight: 300;
-    text-decoration: capitalize;
-    margin-top: 50px;
-}
 table {
     border: 1px solid #ccc;
     border-collapse: collapse;
@@ -143,9 +138,7 @@ table {
     border: 1px solid #ddd;
     padding: .35em;
   }
-  .even{
-      background: #cccbcb;
-  }
+ 
   table th,
   table td {
     padding: .625em;
@@ -169,7 +162,7 @@ table {
     table caption {
       font-size: 1.3em;
     }
-    
+    /*thead == table header*/
     table thead {
       border: none;
       clip: rect(0 0 0 0);
@@ -181,7 +174,7 @@ table {
       position: absolute;
       width: 1px;
     }
-    
+    /*tr == table row*/
     table tr {
       border-bottom: 3px solid #ddd;
       display: block;
@@ -189,6 +182,7 @@ table {
       margin-bottom: .625em;
     }
     
+    /*td == table data in each row*/
     table td {
       border-bottom: 1px solid #ddd;
       display: block;
@@ -213,6 +207,22 @@ table {
   
   
   
+  .eye{
+    display: block;
+    background: transparent;
+    border-style: none;
+    color: #b9b4e6;
+}
+
+.eye:hover{
+    color: black;
+    background-color: transparent;
+  
+}
+.eye:hover.active{
+    color: black;
+    background-color: transparent;
+}
   
   
   

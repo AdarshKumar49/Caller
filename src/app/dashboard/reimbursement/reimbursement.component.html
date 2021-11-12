@@ -48,6 +48,11 @@
                         <mat-cell *matCellDef="let dataSource"> {{dataSource.eSign}} </mat-cell>
                       </ng-container>
 
+                      <ng-container matColumnDef="action">
+                        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+                        <mat-cell *matCellDef="let dataSource"> <button mat-icon-button class="eye"> <mat-icon>visibility</mat-icon>  </button> </mat-cell>
+                      </ng-container>
+
                       
 
                       <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>

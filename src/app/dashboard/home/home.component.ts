@@ -11,13 +11,10 @@ import { ApiService } from 'src/app/shared/service/api.service';
   styleUrls: ['./home.component.scss']
 })
 export class HomeComponent implements OnInit {
-  displayedColumns: string[] = ['name', 'status'];
+  displayedColumns: string[] = ['name', 'status', 'action'];
   dataSource = new MatTableDataSource();
-  selectedMenu:any = 'List';
 
-  goTo(paramText:string){
-    this.selectedMenu = paramText
-  }
+
   
  /* dataSource = new MatTableDataSource (ELEMENT_DATA);*/
  @ViewChild('scheduledOrdersPaginator') paginator: MatPaginator;

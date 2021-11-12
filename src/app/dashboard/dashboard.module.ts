@@ -11,7 +11,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import {MatPaginatorModule} from '@angular/material/paginator';
 import { NgxSpinnerModule } from "ngx-spinner";
 import { SharedModule } from '../shared/shared.module';
-
+import {MatIconModule} from '@angular/material/icon';
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import { ReimbursementComponent } from './reimbursement/reimbursement.component';
 
@@ -32,6 +32,7 @@ import { ReimbursementComponent } from './reimbursement/reimbursement.component'
     NgxSpinnerModule,
     MatPaginatorModule,
     MatTableModule,
+    MatIconModule,
     SharedModule
 
     
