@@ -12,6 +12,16 @@
  
   
 }
+@media (max-width: 991px) {
+  .main-box {
+    height: 0;
+    background-color: white;
+    display: block;
+    border-right-style: solid;
+    border-color: #f3f3f3;
+}
+}
+
 #logo{
   margin-left: -5px;
 }

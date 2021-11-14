@@ -33,7 +33,7 @@ export class EmployeeListComponent implements OnInit {
 
   employeeList(){
 
-    this.api.functionGET('company/1/employee?search=&limit=10&page=1&orderBy=ASC&sortBy=createdAt').subscribe((response)=>{
+    this.api.functionGET('company/1/employee?search=&limit=147&page=1&orderBy=ASC&sortBy=createdAt').subscribe((response)=>{
       this.dataSource.data = response.result.rows;
       console.log('response', response);
   })

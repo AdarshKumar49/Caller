@@ -33,7 +33,7 @@ export class ReimbursementComponent implements OnInit {
     this.reimbursementList();
   }
   reimbursementList(){
-    this.api.functionGET('reimbursement?').subscribe((response)=>{this.dataSource.data = response.result.rows;
+    this.api.functionGET('reimbursement?search&fromDate=&toDate=&reimbursementType=&status=&limit=15&page=1&sortBy=status&orderBy=ASC&timeOffset=-330').subscribe((response)=>{this.dataSource.data = response.result.rows;
       console.log('response', response);
      
   })

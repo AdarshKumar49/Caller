@@ -25,9 +25,6 @@
   
   
   
-  
-  
-  
   .menu-items li{
       display: block;
       line-height: 60px;
@@ -223,7 +220,15 @@ table {
     color: black;
     background-color: transparent;
 }
-  
+@media (max-width: 991px) {
+    .main-box {
+      height: 340px;
+      background-color: white;
+      display: block;
+      border-right-style: solid;
+      border-color: #f3f3f3;
+  }
+  }
   
   
   

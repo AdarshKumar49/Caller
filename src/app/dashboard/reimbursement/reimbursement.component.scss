@@ -68,13 +68,15 @@
           background:white;
       }
   }
-@media (max-width:985px){
-
-    .main-box{
-        height: 300px;
-    }
-}
-  
+  @media (max-width: 991px) {
+    .main-box {
+      height: 340px;
+      background-color: white;
+      display: block;
+      border-right-style: solid;
+      border-color: #f3f3f3;
+  }
+  }
 
 
 
