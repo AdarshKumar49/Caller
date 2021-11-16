@@ -1,7 +1,7 @@
 
 
-import { Component, OnInit } from '@angular/core';
-import {FormControl, Validators, FormGroup, FormBuilder } from '@angular/forms';
+import { Component, OnInit, ViewChild } from '@angular/core';
+import {FormControl, Validators, FormGroup, FormBuilder, NgForm } from '@angular/forms';
 import { Router } from '@angular/router';
 import { ApiService } from '../../../shared/service/api.service';
 import { Observable } from 'rxjs';
@@ -19,10 +19,13 @@ export class LoginComponent implements OnInit {
   
   formGroup: FormGroup;
   cookieValue: string;
+  hr = '1'
+
+  @ViewChild('loginForm') public login:NgForm;
   
 
   constructor(
-    private formBuilder: FormBuilder,
+    public formBuilder: FormBuilder,
     private api: ApiService,
     private toastr: ToastrService,
     private cookieService: CookieService,
@@ -34,6 +37,7 @@ export class LoginComponent implements OnInit {
 
   ngOnInit() {
       this.createForm();
+    localStorage.setItem('SessionUser', 'hr');
       
   }
  

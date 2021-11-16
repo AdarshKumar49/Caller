@@ -8,13 +8,14 @@ import { forkJoin, throwError, Observable } from 'rxjs';
 import { catchError, map, mergeMap } from 'rxjs/operators';
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { NgxSpinnerService } from "ngx-spinner";
-import { v4 as uuidv4 } from 'uuid';
+
 
 @Injectable({
   providedIn: 'root'
 })
 
 export class ApiService {
+  [x: string]: any;
   constructor(
     private http: HttpClient,
     private cookieService: CookieService,
@@ -77,12 +78,20 @@ export class ApiService {
   // Handler
   checkResponse(response: any) {
     const results = response;
+    if (results.status === 'success') {
+      return results.data;}
+    
+    
+    
     if (results['success'] || results['status']) {
       return results;
     } else {
       return { 'error': results['error'] };
     }
+   
+    
   }
+  
  
   handleError(error: any): any {
     switch (error.status) {
@@ -100,3 +109,8 @@ export class ApiService {
     }
   }
 }
+
+ 
+
+
+
