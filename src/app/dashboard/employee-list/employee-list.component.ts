@@ -14,7 +14,11 @@ import { MatDialog } from '@angular/material/dialog';
 })
 export class EmployeeListComponent implements OnInit {
   displayedColumns: string[] = ['firstName', 'jobTitle' , 'phone', 'action'];
+  
+  
   dataSource = new MatTableDataSource();
+  
+  
   
  /* dataSource = new MatTableDataSource (ELEMENT_DATA);*/
 
@@ -30,16 +34,33 @@ export class EmployeeListComponent implements OnInit {
   ngOnInit() {
     this.employeeList();
   }
-
+  
+  
   employeeList(){
 
     this.api.functionGET('company/1/employee?search=&limit=147&page=1&orderBy=ASC&sortBy=createdAt').subscribe((response)=>{
       this.dataSource.data = response.result.rows;
+      //let data = this.dataSource.data;
+    
+     //let data = this.displayedColumns.map(key => { return this.dataSource.data.map(row => row[key]) });
+      //let data = this.displayedColumns.filter(key => { return this.dataSource.data.map(column => column[key]).filter(v => v).length > 0 });
+     // this.dataSource.data = [...data];
       console.log('response', response);
-  })
+      const removeDuplicates = (array, key) => {
+        return array.reduce((arr, item) => {
+          const removed = arr.filter(i => i[key] !== item[key]);
+          return [...removed, item];
+        }, []);
+      };
+      this.dataSource.data = removeDuplicates(this.dataSource.data, this.displayedColumns[0]);
+      }
+     
+    )}
+ 
+  
 
   
-}
+
 viewDetails(dataSource){
   const dialogRef=this.dialog.open(DetailsComponent,{
     data:{
